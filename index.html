@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 7th Anniversary</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+
+    #stars {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-container {
+      margin: 20px 0;
+      border: 4px solid white;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    video {
+      width: 320px;
+      max-width: 90vw;
+      border-radius: 12px;
+    }
+
+    .yt-music {
+      margin-top: 1rem;
+    }
+
+    iframe {
+      border-radius: 12px;
+      border: none;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Efek bunga jatuh */
+    .petal {
+      position: fixed;
+      top: -10px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/7774/7774011.png');
+      background-size: contain;
+      width: 20px;
+      height: 20px;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background: Stars -->
+  <div id="stars"></div>
+
+  <!-- Script: Bintang -->
+  <script>
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      document.getElementById('stars').appendChild(star);
+    }
+  </script>
+
+  <!-- Kelopak bunga jatuh -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = 5 + Math.random() * 5 + 's';
+      petal.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(petal);
+    }
+  </script>
+
+  <!-- Konten Utama -->
+  <div class="content">
+    <h1>Happy 7th Anniversary!</h1>
+    <h2>Untuk kamu yang selalu jadi alasanku tersenyum setiap hari 💖</h2>
+
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Browser kamu tidak mendukung video.
+      </video>
+    </div>
+
+    <p>"Tujuh tahun bersama, bukan waktu yang singkat. Terima kasih sudah setia, sabar, dan selalu menjadi rumah untukku. Aku cinta kamu, hari ini, esok, dan selamanya."</p>
+
+    <div class="yt-music">
+      <p>🎶 Klik play untuk lagu spesial kita:</p>
+      <iframe width="300" height="80"
+        src="https://www.youtube.com/embed/7EDHokkJgWI?enablejsapi=1"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="footer">Dari Ilham untuk Micin Sayang ❤️ 2018 - 2025</div>
+  </div>
+
+</body>
+</html>
